@@ -36,7 +36,7 @@ fn datetime() string {
 }
 
 // Select screenshot_mode from a list of `items` through `menu`
-fn select_mode(menu []string, items map[string]string) string {
+fn choose_mode(menu []string, items map[string]string) string {
 	c := menu.join(' ')
 	o := items.keys().join('\n')
 	r := os.exec('printf "$o" | $c') or {
@@ -58,7 +58,7 @@ fn take_screenshot() string {
 	opts := maim
 	menu := dmenu
 	//
-	mode := select_mode(menu, opts)
+	mode := choose_mode(menu, opts)
 	if opts[mode].len != 0 {
 		path := '/tmp/${datetime()}.png'
 		cmd := opts[mode]
