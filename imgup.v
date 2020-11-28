@@ -16,8 +16,8 @@ import encoding.base64
 import json
 
 struct ImgurRes {
-	status  int
-	data    map[string]string
+	status int
+	data   map[string]string
 }
 
 // Send notifcation to the user, TODO: add support for macos
@@ -54,15 +54,15 @@ fn take_screenshot() string {
 		'area': 'maim -s'
 		'fullscreen': 'maim'
 	}
-  // NOTE: add conditon for current os here
-  opts := maim
-  menu := dmenu
-  //
+	// NOTE: add conditon for current os here
+	opts := maim
+	menu := dmenu
+	//
 	mode := select_mode(menu, opts)
 	if opts[mode].len != 0 {
 		path := '/tmp/${datetime()}.png'
-		cmd := opts[mode] 
-    os.system('$cmd $path')
+		cmd := opts[mode]
+		os.system('$cmd $path')
 		return path
 	} else {
 		return ''
@@ -93,7 +93,7 @@ fn upload_to_imgur(path string) http.Response {
 	return res
 }
 
-// returns imgur url from http.Response 
+// returns imgur url from http.Response
 fn get_img_url(res http.Response) string {
 	r := res.text.str()
 	j := json.decode(ImgurRes, r) or {
