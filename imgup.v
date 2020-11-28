@@ -3,7 +3,7 @@ Imgup: A small utility to take a screenshot then upload it to imgur.
  * 1. select an area, full screen or current window.  
  * 2. upload in imgurl.  
  * 3. copy the url into clipboard. 
- * uses: dmenu, maim
+ * uses: dmenu, maim, notify-send and xclip 
  * TODO: fix fullscreen capturing before the dmenu prompt is closed
  * TODO: fix area selection including the mouse.
  * TODO: Add support for gif
