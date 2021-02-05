@@ -3,7 +3,7 @@ EXECUTABLES = $(addprefix bin/,$(SOURCES:.v=))
 $(shell mkdir -p bin)
 all: $(EXECUTABLES)
 bin/% : %.v
-	v -o $@ $<
+	v -prod -o $@ $<
 clean:
 	rm -rf bin/
 
